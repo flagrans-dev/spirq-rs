@@ -1499,7 +1499,8 @@ impl<'a> ReflectIntermediate<'a> {
             } else if SPEC_CONST_RANGE.contains(&opcode) {
                 self.populate_one_spec_const(instr)?;
             } else {
-                break;
+                // FIXME: break hinders reflection when functions are called
+                //break;
             }
             instrs.next();
         }
